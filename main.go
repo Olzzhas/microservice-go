@@ -14,9 +14,7 @@ func main() {
 	l := log.New(os.Stdout, "product-api", log.LstdFlags)
 
 	sm := http.NewServeMux()
-	sm.Handle("/", handlers.NewHello(l))
-	sm.Handle("/goodbye", handlers.NewGoodbye(l))
-	sm.Handle("/products", handlers.NewProducts(l))
+	sm.Handle("/", handlers.NewProducts(l))
 
 	s := &http.Server{
 		Addr:         ":9090",
